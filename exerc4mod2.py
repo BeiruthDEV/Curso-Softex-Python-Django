@@ -39,3 +39,30 @@ soma = sum(numeros)
 
 print("\nNúmeros válidos coletados:", numeros)
 print("Soma dos números válidos:", soma)
+
+
+"""
+1. Cria lista vazia numeros = [] para guardar os números válidos.
+
+
+2. Loop infinito while True: pede números repetidamente.
+
+
+3. Sai do loop se o usuário digitar -1.
+
+
+4. Valida entrada com isdigit() para garantir que é um número.
+
+
+5. Verifica intervalo: adiciona à lista apenas se estiver entre 0 e 100.
+
+
+6. Soma os números com sum(numeros).
+
+
+7. Imprime resultado: lista de números válidos e a soma.
+
+"""
+
+
+
