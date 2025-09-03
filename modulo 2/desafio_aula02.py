@@ -73,36 +73,30 @@ Tempo total das sessões bem-sucedidas: 95 minutos
 
 
 """
-
-
-
-
 registros_acessos = []
 usuarios_sucesso = set()
 tempo_total = 0
 
 while True:
-    usuario = input("Digite o nome de usuário (ou 'parar' para sair): ").strip()
+    usuario = input("Digite o nome de usuário (ou 'parar' para sair): ")
     if usuario.lower() == 'parar':
         break
 
-    while True:
-        print("Selecione o status:\n1 - Sucesso\n2 - Falha")
-        status_input = input("Opção: ").strip()
-        if status_input in ('1', '2'):
-            status = 'sucesso' if status_input == '1' else 'falha'
-            break
-        print("Opção inválida! Digite 1 ou 2.")
-
-    try:
-        duracao = int(input("Digite a duração da sessão em minutos: ").strip())
-        if duracao < 0:
-            raise ValueError
-    except ValueError:
-        print("Duração inválida! Registro descartado.")
+    status_input = input("Selecione o status (1 - Sucesso, 2 - Falha): ")
+    if status_input == '1':
+        status = 'sucesso'
+    elif status_input == '2':
+        status = 'falha'
+    else:
+        print("Opção inválida, registro descartado.")
         continue
 
-     
+    try:
+        duracao = int(input("Digite a duração da sessão em minutos: "))
+    except:
+        print("Duração inválida, registro descartado.")
+        continue
+
     registros_acessos.append((usuario, status, duracao))
 
     if status == 'sucesso':
@@ -110,11 +104,8 @@ while True:
         tempo_total += duracao
 
 
-print("\n=== Registros de Acessos ===")
-for registro in registros_acessos:
-    print(registro)
-
-print("\n=== Usuários com Acesso Bem-Sucedido ===")
+print("\nRegistros de acessos:")
+print(registros_acessos)
+print("Usuários com acesso bem-sucedido:")
 print(usuarios_sucesso)
-
-print(f"\nTempo Total das Sessões Bem-Sucedidas: {tempo_total} minutos")
+print(f"Tempo total das sessões bem-sucedidas: {tempo_total} minutos")
