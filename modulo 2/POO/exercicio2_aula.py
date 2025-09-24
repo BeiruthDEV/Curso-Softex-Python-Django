@@ -34,7 +34,7 @@ class Video(Midia):
 
 
 if __name__ == "__main__":
-    colecao_midias = {
+    varias_midias = {
         'musicas': [],
         'videos': []
     }
@@ -45,16 +45,16 @@ if __name__ == "__main__":
     video1 = Video("Curso Python Básico", 1200, "1080p")
     video2 = Video("Curso Java Básico", 900, "720p")
 
-    colecao_midias['musicas'].append(musica1)
-    colecao_midias['musicas'].append(musica2)
+    varias_midias['musicas'].append(musica1)
+    varias_midias['musicas'].append(musica2)
 
-    colecao_midias['videos'].append(video1)
-    colecao_midias['videos'].append(video2)
+    varias_midias['videos'].append(video1)
+    varias_midias['videos'].append(video2)
 
     print(" Músicas:")
-    for musica in colecao_midias['musicas']:
+    for musica in varias_midias['musicas']:
         musica.exibir()
 
     print("\n Vídeos:")
-    for video in colecao_midias['videos']:
+    for video in varias_midias['videos']:
         video.exibir()
