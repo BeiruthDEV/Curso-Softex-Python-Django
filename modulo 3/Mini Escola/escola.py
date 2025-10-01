@@ -13,7 +13,7 @@ class Escola:
         
         
     def mostrar_relatorio(self):
-        print("RELATÓRIO DE ESTUDANTES")
+        print("RELATORIO DE ESTUDANTES")
         print("------------------------")
         for estudante in self.estudante:
             print(f"Nome: {estudante.get_nome()}")
