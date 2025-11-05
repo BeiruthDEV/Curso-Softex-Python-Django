@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Primeira Template</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Olá Mundo!(Vindo de um template)</h1>
+    <p>Este HTML está separado do meu codigo Python.</p>
+    <h3>Tecnologias que eu estou aprendendo</h3>
+    <ul>
+        {% for tec in tecnologias %}
+            <li>{{ tec }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if nome_usuario == 'Júnior' %}
+        <p>Esté e um conteúdo especial para Júnior</p>
+    {% endif %}
+
+</body>
+</html>
