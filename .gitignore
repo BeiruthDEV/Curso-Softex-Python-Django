@@ -1,0 +1,11 @@
+# Ambientes Virtuais
+venv/
+.venv/
+env/
+
+# Arquivos temporários/compilados do Python (Lixo)
+__pycache__/
+*.pyc
+
+# Banco de dados local (Opcional: se não quiser salvar os dados de teste no Git)
+db.sqlite3
