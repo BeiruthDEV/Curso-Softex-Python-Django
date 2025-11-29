@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Minhas Tarefas</h2>
+
+<div class="card">
+    <h3>Nova Tarefa</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar</button>
+    </form>
+</div>
+
+<ul>
+    {% for task in tasks %}
+    <li>
+        <strong>{{ task.title }}</strong> 
+        ({{ task.project.title }}) - {{ task.get_status_display }}
+        
+        <div style="display:inline-flex;">
+            {% if task.status == 'pendente' %}
+            <form action="{% url 'complete_task' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Concluir</button>
+            </form>
+            {% endif %}
+            
+            <form action="{% url 'delete_task' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Tem certeza?')">Deletar</button>
+            </form>
+        </div>
+    </li>
+    {% empty %}
+    <li>Nenhuma tarefa encontrada. Crie um projeto primeiro!</li>
+    {% endfor %}
+</ul>
+{% endblock %}
