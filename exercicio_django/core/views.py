@@ -25,7 +25,7 @@ def home(request):
         form = TarefaForm(request.user, request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task.user = request.user
+            task.user = request.user  
             task.save()
             return redirect('home')
     else:
